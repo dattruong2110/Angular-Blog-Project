@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
-
-@Component({
-  selector: 'app-default',
-  templateUrl: './default.component.html',
-  styleUrls: ['./default.component.scss']
-})
-export class DefaultComponent implements OnInit {
-  visibleSidebar: any;
-
-  constructor(private primengConfig: PrimeNGConfig) { }
-
-  ngOnInit(): void {
-    this.primengConfig.ripple = true;
-  }
-}
+<div class="navbar">
+  <div class="top">
+    <i class="pi pi-bell" style="font-size: 2rem"></i>
+    <!-- <button pButton pRipple type="button" type="button" icon="pi pi-bell"
+      class="p-button-rounded p-button-help p-button-text"></button> -->
+  </div>
+  <div class="user">
+    <img src="http://www.badmintonperu.com/aulavirtual/img/admin-settings-male.png" alt="Avatar User">
+    <h4 class="name">Admin</h4>
+    <p class="mail">admin@gmail.com</p>
+  </div>
+  <!-- <div class="menu">
+    <div class="menu-head">
+      <span>dashboard</span>
+    </div>
+  </div> -->
+  <p-menu [model]="items"></p-menu>
+</div>
