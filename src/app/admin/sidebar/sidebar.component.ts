@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem, MessageService, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,10 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+  items: MenuItem[] = [];
 
-  constructor() { }
+  constructor(private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
+    this.items = [{
+      label: 'Dashboard',
+      items: [{
+        label: 'Home',
+        icon: 'pi pi-home'
+      },
+      {
+        label: 'Post',
+        icon: 'pi pi-comment'
+      },
+      {
+        label: 'Comments',
+        icon: 'pi pi-comments'
+      }
+    ],
+    }]
   }
 
 }
