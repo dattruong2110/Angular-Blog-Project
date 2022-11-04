@@ -21,6 +21,7 @@ import { PostListComponent } from './admin/dashboard/posts/post-list/post-list.c
 import { AccordionModule } from 'primeng/accordion';
 import { PanelModule } from 'primeng/panel';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,10 +46,10 @@ import { FormsModule } from '@angular/forms';
     CardModule,
     AccordionModule,
     PanelModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
