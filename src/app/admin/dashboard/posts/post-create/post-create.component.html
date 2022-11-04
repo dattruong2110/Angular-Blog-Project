@@ -1,1 +1,8 @@
-<p>post-create works!</p>
+<p-card>
+  <form (submit)="onPostAdd(postForm)" #postForm="ngForm">
+    <input type="text" pInputText ngModel name="title" placeholder="Post Title" #title="ngModel" style="margin-bottom: 10px;" required/>
+    <textarea rows="10" pInputText ngModel name="content" placeholder="Post Content" #content="ngModel" style="margin-bottom: 10px;" required></textarea>
+    <button type="submit" pButton pRipple class="p-button-help">Save Post</button>
+  </form>
+</p-card>
+<app-post-list></app-post-list>
