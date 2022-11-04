@@ -1,1 +1,25 @@
-<p>default works!</p>
+<p-toolbar>
+  <button pButton pRipple type="button" type="button" (click)="visibleSidebar = true" icon="pi pi-bars" class="p-button-rounded p-button-help p-button-text"></button>
+  <p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+    <app-sidebar></app-sidebar>
+  </p-sidebar>
+  <div class="content">
+    <div class="toolbar">
+      <div class="mr-10">
+        <button pButton pRipple type="button" type="button" icon="pi pi-search"
+          class="p-button-rounded p-button-help p-button-text"></button>
+      </div>
+      <div class="mr-10">
+        <button pButton pRipple type="button" type="button" icon="pi pi-bookmark"
+          class="p-button-rounded p-button-help p-button-text"></button>
+      </div>
+      <div class="mr-10">
+        <button pButton pRipple type="button" type="button" icon="pi pi-envelope"
+          class="p-button-rounded p-button-help p-button-text"></button>
+      </div>
+    </div>
+  </div>
+</p-toolbar>
+<div class="main">
+  <router-outlet></router-outlet>
+</div>
