@@ -1,0 +1,34 @@
+// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  // font-family: 'Inter', sans-serif;
+}
+
+.pi-bell {
+  font-size: 1.4rem !important;
+  color: plum;
+  vertical-align: middle;
+}
+
+.user {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 50px;
+  img{
+    margin-top: 16px;
+    width: 120px;
+    height: 120px;
+  }
+  .name {
+    color: plum;
+    margin-bottom: 5px;
+  }
+
+  .mail {
+    color: plum;
+  }
+}
