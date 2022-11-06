@@ -16,11 +16,13 @@ app.use('/api/posts', (req, res, next) => {
       id: "1811060165",
       title: "This is from server",
       content: "Server first content",
+      date: 'Nov 4, 2022, 7:41:55 PM',
     },
     {
       id: "1811060166",
       title: "This is from server",
       content: "Server second content",
+      date: 'Nov 4, 2022, 7:45:55 PM'
     },
   ];
   res.status(200).json({

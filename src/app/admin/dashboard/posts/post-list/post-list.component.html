@@ -1,10 +1,10 @@
-<p-accordion *ngFor="let post of posts" [multiple]="true">
+<p-accordion *ngFor="let post of posts; let idx = index" [multiple]="true">
   <p-accordionTab header="{{post.title}}">
     <p>{{post.content}}</p>
     <p class="date" style="text-align: end;">{{post.dateTime | date: 'MMM d, y, h:mm:ss a'}}</p>
     <div class="dateTime" >
-      <button pButton pRipple class="p-button-success">Edit</button>
-      <button pButton pRipple class="p-button-danger">Delete</button>
+      <button pButton pRipple class="p-button-success mr-10">Edit</button>
+      <button pButton pRipple class="p-button-danger" (click)="deletePost(idx)">Delete</button>
     </div>
   </p-accordionTab>
 </p-accordion>

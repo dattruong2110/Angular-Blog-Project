@@ -17,11 +17,13 @@ export class SidebarComponent implements OnInit {
       label: 'Dashboard',
       items: [{
         label: 'Home',
-        icon: 'pi pi-home'
+        icon: 'pi pi-home',
+        routerLink: ['/']
       },
       {
         label: 'Post',
-        icon: 'pi pi-comment'
+        icon: 'pi pi-comment',
+        routerLink: ['/posts']
       },
       {
         label: 'Comments',

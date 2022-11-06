@@ -14,7 +14,7 @@ export class PostsService {
     return this.postUpdated.asObservable();
   }
 
-  addPost( title: string, content: string, dateTime: any) {
+  addPost( title: string, content: string, dateTime: Date) {
     const post: Post = { id: null, title: title, content: content, dateTime: new Date() };
     this.http.post<{message: string}>
     ('http://localhost:3000/api/posts', post)
