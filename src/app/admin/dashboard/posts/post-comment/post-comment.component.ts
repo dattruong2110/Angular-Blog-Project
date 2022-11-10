@@ -1,7 +1,7 @@
 import { PostsService } from './../posts.service';
 import { Post } from './../posts.model';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-post-comment',
@@ -10,8 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostCommentComponent implements OnInit {
 
+  @Input() post: Post;
+
   public commentForm: FormGroup = new FormGroup({});
-  public post: Post[] = [];
 
   constructor(public postService: PostsService) { }
 
@@ -21,10 +22,8 @@ export class PostCommentComponent implements OnInit {
     })
   }
 
-  public onPostComment() {
-    this.post.push({
-      comment: this.commentForm.value.comment,
-    })
+  onPostComment() {
+    this.post.comments.push(this.commentForm.value.comment)
     this.commentForm.reset();
   }
 
