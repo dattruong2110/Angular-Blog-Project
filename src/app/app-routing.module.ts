@@ -1,3 +1,5 @@
+import { PostEditComponent } from './admin/dashboard/posts/post-edit/post-edit.component';
+import { PostListComponent } from './admin/dashboard/posts/post-list/post-list.component';
 import { PostsComponent } from './admin/dashboard/posts/posts.component';
 import { PostCreateComponent } from './admin/dashboard/posts/post-create/post-create.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
@@ -10,7 +12,17 @@ const routes: Routes = [
     path: '', component: DefaultComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'posts', component: PostCreateComponent }
+      {
+        path: 'posts',
+        component: PostListComponent,
+        children: [
+          {
+            path: 'edit/:id',
+            component: PostEditComponent,
+          }
+        ]
+     }
+
     ]
   }
 ];
