@@ -1,8 +1,14 @@
-<p-card>
-  <form (submit)="onPostAdd(postForm)" #postForm="ngForm">
-    <input type="text" pInputText ngModel name="title" placeholder="Post Title" #title="ngModel" style="margin-bottom: 10px;" required/>
-    <textarea rows="10" pInputText ngModel name="content" placeholder="Post Content" #content="ngModel" style="margin-bottom: 10px;" required></textarea>
-    <button type="submit" pButton pRipple class="p-button-help">Save Post</button>
-  </form>
-</p-card>
-<app-post-list></app-post-list>
+<div class="card-create">
+  <p-card>
+    <h4>Post</h4>
+    <form [formGroup]="postForm">
+      <div class="form-style">
+        <input #titleControl type="text" pInputText ngModel formControlName="title" placeholder="Post Title" class="input-post" />
+        <textarea #contentControl rows="10" pInputText ngModel formControlName="content" placeholder="Post Content"
+          class="textarea-post"></textarea>
+      </div>
+      <button type="submit" pButton pRipple class="p-button-help" (click)="onPostAdd()" [disabled]="postForm.invalid">Save Post</button>
+    </form>
+  </p-card>
+</div>
+<p-toast></p-toast>
