@@ -1,0 +1,7 @@
+<form [formGroup]="commentForm">
+  <div class="form-style">
+    <textarea #commentControl rows="10" pInputText formControlName="comment" placeholder="Post Comment"
+      class="textarea-post"></textarea>
+  </div>
+  <button type="submit" pButton pRipple class="p-button-primary" (click)="onPostComment()">Comment</button>
+</form>
