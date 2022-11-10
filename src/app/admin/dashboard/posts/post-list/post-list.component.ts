@@ -14,7 +14,6 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   public postForm!: FormGroup;
   posts: Post[] = [];
-  updateIndex!: any;
   isEditEnabled: boolean = false;
   private postsSub!: Subscription;
   private postUpdateNotifier: Subject<Post[]>;
@@ -40,22 +39,4 @@ export class PostListComponent implements OnInit, OnDestroy {
     this.postsSub.unsubscribe();
   }
 
-  onEdit(post: Post) {
-    // this.postForm.controls['title'].setValue(post.title);
-    // this.postForm.controls['content'].setValue(post.content);
-    // this.updateIndex = idx;
-    // this.isEditEnabled = true;
-    post.inEdit = true;
-  }
-
-  updatePost() {
-    this.posts[this.updateIndex].title = this.postForm.value.title;
-    this.posts[this.updateIndex].content = this.postForm.value.content;
-    this.updateIndex = undefined;
-    this.isEditEnabled = false;
-  }
-
-  deletePost(idx: number) {
-    this.posts.splice(idx, 1);
-  }
 }
