@@ -2,22 +2,7 @@
   <app-post-create></app-post-create>
 
   <p-accordion *ngFor="let post of posts; let idx = index" [multiple]="true">
-    <div class="cardDisplay">
-      <p-accordionTab header="{{post.title}}">
-        <p>{{post.content}}</p>
-        <p class="date" style="text-align: end;">{{post.dateTime | date: 'MMM d, y, h:mm:ss a'}}</p>
-        <div class="styleFlex">
-          <button pButton pRipple class="p-button-success mr-10" (click)="onEdit(post)">Edit</button>
-          <button pButton pRipple class="p-button-danger" (click)="deletePost(idx)">Delete</button>
-        </div>
-        <div>
-          <h4>Comment</h4>
-          <p>{{post.comment}}</p>
-        </div>
-        <app-post-comment></app-post-comment>
-      </p-accordionTab>
-    </div>
-    <app-post-edit *ngIf="post.inEdit === true" [post]="post"></app-post-edit>
+    <app-post [post]="post"></app-post>
   </p-accordion>
   <p *ngIf="posts.length <= 0" class="noPosts">No Posts Available!</p>
 </div>
