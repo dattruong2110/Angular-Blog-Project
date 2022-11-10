@@ -1,0 +1,15 @@
+<div class="card-edit">
+  <p-card>
+    <h4>Edit Post</h4>
+    <form [formGroup]="editFrom">
+      <div class="form-style">
+        <input #titleControl type="text" pInputText formControlName="title"
+          placeholder="Post Title" class="input-post" />
+        <textarea #contentControl rows="10" pInputText formControlName="content"
+          placeholder="Post Content" class="textarea-post"></textarea>
+      </div>
+      <button type="submit" pButton pRipple class="p-button-success" (click)="savePost()">Update</button>
+    </form>
+  </p-card>
+</div>
+<p-toast></p-toast>
