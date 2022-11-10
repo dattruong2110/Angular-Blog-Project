@@ -52,6 +52,7 @@ export class PostsService {
     this.http.get<{message: string, posts: Post[]}>
     ('http://localhost:3000/api/posts')
     .subscribe(postData => {
+      // this.posts = postData.posts.map(rawPost => ({ ...rawPost, comments: rawPost.comments || [] }));
       this.posts = postData.posts;
       this.postUpdated.next([...this.posts])
     })
