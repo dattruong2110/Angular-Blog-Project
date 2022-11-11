@@ -13,9 +13,11 @@ export class PostComponent implements OnInit {
 
   @Input() post: Post;
 
-  @Output() delete: EventEmitter<Post> = new EventEmitter();
+  // @Output() delete: EventEmitter<Post> = new EventEmitter();
+  @Output() delete = new EventEmitter<number>();
 
   public postForm!: FormGroup;
+  isLike = false;
 
   constructor() { }
 
@@ -37,7 +39,11 @@ export class PostComponent implements OnInit {
   }
 
   deletePost() {
-    this.delete.emit(this.post);
+    this.delete.emit(this.post.id);
+  }
+
+  public handleIsLike() {
+    this.isLike = this!.isLike;
   }
 
 }
