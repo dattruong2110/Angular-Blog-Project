@@ -1,15 +1,27 @@
 <div class="cardDisplay">
   <p-accordionTab header="{{post.title}}">
-    <p>{{post.content}}</p>
+    <div class="post-content">
+      <div class="content">
+        <p>{{post.content}}</p>
+      </div>
+      <div class="emotion">
+        <button pButton pRipple type="button" type="button"
+          class="p-button-rounded p-button-primary p-button-text" (click)="handleIsLike()"><i class="pi pi-thumbs-up"></i></button>
+      </div>
+    </div>
     <p class="date" style="text-align: end;">{{post.dateTime | date: 'MMM d, y, h:mm:ss a'}}</p>
     <div class="styleFlex">
       <button pButton pRipple class="p-button-success mr-10" (click)="onEdit()">Edit</button>
-      <button pButton pRipple class="p-button-danger" (click)="deletePost()">Delete</button>
+      <button pButton pRipple class="p-button-danger" (click)="delete.emit(post.id)">Delete</button>
     </div>
     <div>
       <h4>Comment</h4>
+      <ul>
+        <li *ngFor="let currentComment of post.comments">
+          {{currentComment}}
+        </li>
+      </ul>
       <app-post-comment [post]="post"></app-post-comment>
-      <p *ngFor="let currentComment of post.comments">{{currentComment}}</p>
     </div>
   </p-accordionTab>
   <app-post-edit *ngIf="post.inEdit === true" [post]="post"></app-post-edit>
