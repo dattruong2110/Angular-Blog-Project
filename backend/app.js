@@ -13,16 +13,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/posts', (req, res, next) => {
   const post = [
     {
-      id: "1811060165",
+      id: 1,
       title: "This is from server",
       content: "Server first content",
-      date: 'Nov 4, 2022, 7:41:55 PM',
+      comments: [],
     },
     {
-      id: "1811060166",
+      id:2,
       title: "This is from server",
       content: "Server second content",
-      date: 'Nov 4, 2022, 7:45:55 PM'
+      comments: [],
     },
   ];
   res.status(200).json({
