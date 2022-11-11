@@ -1,4 +1,5 @@
 export class Post {
+  id: number;
   title: string;
   content: string;
   dateTime: Date = new Date();
