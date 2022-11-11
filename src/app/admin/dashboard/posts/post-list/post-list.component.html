@@ -2,7 +2,8 @@
   <app-post-create></app-post-create>
 
   <p-accordion *ngFor="let post of posts; let idx = index" [multiple]="true">
-    <app-post [post]="post"></app-post>
+    <app-post [post]="post" (delete)="handleDeletePost($event)"></app-post>
   </p-accordion>
   <p *ngIf="posts.length <= 0" class="noPosts">No Posts Available!</p>
 </div>
+<p-toast></p-toast>
