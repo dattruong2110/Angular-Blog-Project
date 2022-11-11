@@ -12,15 +12,19 @@
   font-size: 1.5rem;
 }
 
+.post-content {
+  display: flex;
+  justify-content: space-between;
+}
+
 .content {
   font-weight: 500;
 }
 
-.noPosts {
-  font-weight: 500;
-  font-size: 1.5rem;
-}
-
 .mr-10 {
   margin-right: 10px;
+}
+
+.like-btn {
+  background-color: #3B82F6;
 }
