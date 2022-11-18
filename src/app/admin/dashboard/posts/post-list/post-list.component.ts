@@ -16,7 +16,7 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   public postForm!: FormGroup;
   @Input() post: Post;
-  @Input() delete = new EventEmitter<number>();
+  @Input() delete = new EventEmitter<string>();
 
   posts: Post[] = [];
   currentPost = this.posts[0];
@@ -53,22 +53,8 @@ export class PostListComponent implements OnInit, OnDestroy {
     this.postsSub.unsubscribe();
   }
 
-  handleDeletePost(id: number) {
-    // this.posts = this.posts.filter(post => {
-    //   // return post.id !== id;
-    //   return this.postService.deletePost(JSON.stringify(post.id !== id));
-    // });
-
-    this.posts.splice(id, 1);
-    this.postService.saveList();
-
-    // this.postService.deletePost();
-    // window.localStorage.clear();
-
-    // if (this.currentPost.id === id) {
-    //   this.currentPost = this.posts[0];
-    // }
-
+  handleDeletePost(id: string) {
+    this.postService.deletePost(id);
     this.messageService.add({ severity: 'success', detail: 'Post has been deleted' });
   }
 }
