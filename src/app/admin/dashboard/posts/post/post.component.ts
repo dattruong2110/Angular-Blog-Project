@@ -1,3 +1,4 @@
+import { PostsService } from './../posts.service';
 import { Subject } from 'rxjs';
 import { Subscription } from 'rxjs';
 import { FormGroup } from '@angular/forms';
@@ -17,9 +18,8 @@ export class PostComponent implements OnInit {
   @Output() delete = new EventEmitter<number>();
 
   public postForm!: FormGroup;
-  isLike = false;
 
-  constructor() { }
+  constructor(public postService: PostsService) { }
 
   ngOnInit(): void {
   }
@@ -38,12 +38,8 @@ export class PostComponent implements OnInit {
     this.post.inEdit = false;
   }
 
-  deletePost() {
-    this.delete.emit(this.post.id);
+  handleIsLike() {
+    this.post.isLike = this.post.isLike + 1;
+    this.postService.saveList();
   }
-
-  public handleIsLike() {
-    this.isLike = this!.isLike;
-  }
-
 }
