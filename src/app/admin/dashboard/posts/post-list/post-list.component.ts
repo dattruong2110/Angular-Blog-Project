@@ -24,6 +24,14 @@ export class PostListComponent implements OnInit, OnDestroy {
   private postsSub!: Subscription;
   private postUpdateNotifier: Subject<Post[]>;
 
+  // private messageService: MessageService;
+  // private postService: PostsService;
+
+  // constructor() {
+  //   this.messageService = new MessageService();
+  //   this.postService = new PostsService(undefined);
+  // }
+
   constructor(public postService: PostsService, private messageService: MessageService) {
     this.postUpdateNotifier = this.postService.getPostUpdatedNotifier();
   }
@@ -46,14 +54,20 @@ export class PostListComponent implements OnInit, OnDestroy {
   }
 
   handleDeletePost(id: number) {
-    // this.delete.emit(this.post.id);
-    this.posts = this.posts.filter(post => {
-      return post.id !== id;
-    });
+    // this.posts = this.posts.filter(post => {
+    //   // return post.id !== id;
+    //   return this.postService.deletePost(JSON.stringify(post.id !== id));
+    // });
 
-    if (this.currentPost.id === id) {
-      this.currentPost = this.posts[0];
-    }
+    this.posts.splice(id, 1);
+    this.postService.saveList();
+
+    // this.postService.deletePost();
+    // window.localStorage.clear();
+
+    // if (this.currentPost.id === id) {
+    //   this.currentPost = this.posts[0];
+    // }
 
     this.messageService.add({ severity: 'success', detail: 'Post has been deleted' });
   }
