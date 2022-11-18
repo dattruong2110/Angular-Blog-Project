@@ -1,5 +1,4 @@
 import { Post } from './../posts.model';
-import { StorageService } from './../../../../local-storage/local-storage.service';
 import { PostsService } from './../posts.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
@@ -21,30 +20,18 @@ export class PostCreateComponent implements OnInit {
   public postForm!: FormGroup;
   post: Post[] = [];
 
-  constructor(public postService: PostsService, private messageService: MessageService, private storageService: StorageService) {
-    this.post = storageService.getData(postListStorageKey) || defaultPost;
-  }
+  constructor(public postService: PostsService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.postForm = new FormGroup({
       title: new FormControl(['', Validators.required]),
       content: new FormControl(['', Validators.required]),
-      // dateTime: new FormControl(['', Validators.required]),
     })
   }
 
-  savePostList(): void {
-    this.storageService.setData(postListStorageKey, this.post);
-  };
-
   onPostAdd() {
-    this.postService.addPost({
-      title: this.postForm.value.title,
-      content: this.postForm.value.content,
-      // dateTime: this.postForm.value.dateTime,
-    });
+    this.postService.addPost(new Post(this.postForm.value.title, this.postForm.value.content));
     this.postForm.reset();
-    this.savePostList();
 
     this.messageService.add({ severity: 'success', detail: 'Post has been added'});
   }
