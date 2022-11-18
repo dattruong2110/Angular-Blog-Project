@@ -5,8 +5,8 @@
         <p>{{post.content}}</p>
       </div>
       <div class="emotion">
-        <button pButton pRipple type="button" type="button"
-          class="p-button-rounded p-button-primary p-button-text" (click)="handleIsLike()"><i class="pi pi-thumbs-up"></i></button>
+        <!-- <p-toggleButton [(ngModel)]="isLike" onIcon="pi pi-thumbs-up" offIcon="pi pi-thumbs-up"></p-toggleButton> -->
+        <p-button icon="pi pi-thumbs-up" label="Like" styleClass="mr-2" badge="{{post.isLike}}" (click)="handleIsLike()"></p-button>
       </div>
     </div>
     <p class="date" style="text-align: end;">{{post.dateTime | date: 'MMM d, y, h:mm:ss a'}}</p>
