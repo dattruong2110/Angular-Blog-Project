@@ -15,7 +15,7 @@ export class PostComponent implements OnInit {
   @Input() post: Post;
 
   // @Output() delete: EventEmitter<Post> = new EventEmitter();
-  @Output() delete = new EventEmitter<number>();
+  @Output() delete = new EventEmitter<string>();
 
   public postForm!: FormGroup;
 
