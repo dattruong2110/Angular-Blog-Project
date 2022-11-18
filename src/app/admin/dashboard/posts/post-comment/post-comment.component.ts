@@ -23,7 +23,8 @@ export class PostCommentComponent implements OnInit {
   }
 
   onPostComment() {
-    this.post.comments.push(this.commentForm.value.comment)
+    this.post.comments.push(this.commentForm.value.comment);
+    this.postService.saveList();
     this.commentForm.reset();
   }
 
