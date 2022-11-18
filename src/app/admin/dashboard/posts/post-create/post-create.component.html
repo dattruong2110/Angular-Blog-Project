@@ -3,9 +3,9 @@
     <h4>Post</h4>
     <form [formGroup]="postForm">
       <div class="form-style">
-        <input #titleControl type="text" pInputText ngModel formControlName="title" placeholder="Post Title" class="input-post" />
+        <input #titleControl type="text" pInputText ngModel formControlName="title" placeholder="Post Title" class="input-post" required/>
         <textarea #contentControl rows="10" pInputText ngModel formControlName="content" placeholder="Post Content"
-          class="textarea-post"></textarea>
+          class="textarea-post" required></textarea>
       </div>
       <button type="submit" pButton pRipple class="p-button-help" (click)="onPostAdd()" [disabled]="postForm.invalid">Save Post</button>
     </form>
