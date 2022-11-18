@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 export class Post {
-  id: number = uuidv4();
+  id: string = uuidv4();
   title: string;
   content: string;
   dateTime: Date = new Date();
