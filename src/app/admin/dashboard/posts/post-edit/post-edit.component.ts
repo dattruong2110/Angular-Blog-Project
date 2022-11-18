@@ -1,3 +1,4 @@
+import { PostsService } from './../posts.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from '../posts.model';
@@ -23,7 +24,7 @@ export class PostEditComponent implements OnInit {
 
   public editFrom: FormGroup = new FormGroup({});
 
-  constructor(private messageService: MessageService) { }
+  constructor(public postService: PostsService, private messageService: MessageService) { }
 
   ngOnInit(): void {
 
@@ -34,9 +35,10 @@ export class PostEditComponent implements OnInit {
     this.post.content = this.editFrom?.value.content;
 
     this.post.inEdit = false;
+    this.postService.saveList();
+    this.messageService.add({ severity: 'success', detail: 'Post has been edited' });
     // this.post.title = this.editFrom?.controls['title'].value;
     // this.post.content = this.editFrom?.controls['content'].value;
-    this.messageService.add({ severity: 'success', detail: 'Post has been edited' });
   }
 
 }
