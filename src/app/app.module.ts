@@ -27,6 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostEditComponent } from './admin/dashboard/posts/post-edit/post-edit.component';
 import { PostCommentComponent } from './admin/dashboard/posts/post-comment/post-comment.component';
 import { PostComponent } from './admin/dashboard/posts/post/post.component';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { BadgeModule } from 'primeng/badge';
+import { CommentComponent } from './admin/dashboard/posts/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { PostComponent } from './admin/dashboard/posts/post/post.component';
     PostListComponent,
     PostEditComponent,
     PostCommentComponent,
-    PostComponent
+    PostComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,9 @@ import { PostComponent } from './admin/dashboard/posts/post/post.component';
     PanelModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToggleButtonModule,
+    BadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
