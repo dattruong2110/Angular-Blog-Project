@@ -42,4 +42,13 @@ export class PostComponent implements OnInit {
     this.post.isLike = this.post.isLike + 1;
     this.postService.saveList();
   }
+
+  // handleIsLikeComment() {
+  //   if (this.post.isLikeComments === false) {
+  //     this.post.isLikeComments = true;
+  //   } else {
+  //     this.post.isLikeComments = false;
+  //   }
+  //   console.log('Like Comment', this.post.isLikeComments)
+  // }
 }
