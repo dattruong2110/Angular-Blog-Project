@@ -6,11 +6,18 @@ export class Post {
   content: string;
   dateTime: Date = new Date();
   inEdit: boolean = false;
-  comments: string[] = [];
+  comments: Comment[] = [];
   isLike: number = 0;
+  isLikeComments: boolean = false;
 
   constructor(title: string, content: string) {
     this.title = title;
     this.content = content;
   }
+}
+
+export class Comment {
+  id: string = uuidv4();
+  content: string;
+  likeCount: number = 0;
 }
