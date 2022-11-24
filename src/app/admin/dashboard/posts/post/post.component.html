@@ -16,11 +16,13 @@
     </div>
     <div>
       <h4>Comment</h4>
-      <ul>
-        <li *ngFor="let currentComment of post.comments">
-          {{currentComment}}
-        </li>
-      </ul>
+      <div>
+        <ul>
+          <li *ngFor="let currentComment of post.comments">
+           <app-comment [currentComment]="currentComment"></app-comment>
+          </li>
+        </ul>
+      </div>
       <app-post-comment [post]="post"></app-post-comment>
     </div>
   </p-accordionTab>
