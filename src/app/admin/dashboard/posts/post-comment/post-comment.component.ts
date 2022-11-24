@@ -1,5 +1,5 @@
 import { PostsService } from './../posts.service';
-import { Post } from './../posts.model';
+import { Comment, Post } from './../posts.model';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -23,7 +23,9 @@ export class PostCommentComponent implements OnInit {
   }
 
   onPostComment() {
-    this.post.comments.push(this.commentForm.value.comment);
+    const newComment = new Comment();
+    newComment.content = this.commentForm.value.comment;
+    this.post.comments.push(newComment);
     this.postService.saveList();
     this.commentForm.reset();
   }
